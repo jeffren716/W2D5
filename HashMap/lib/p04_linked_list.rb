@@ -56,6 +56,17 @@ class LinkedList
     nil
   end
 
+  def get_node(key)
+    current_node = first
+    found = false
+    until found || current_node == @tail
+      found = (key == current_node.key)
+      return current_node if found
+      current_node = current_node.next
+    end
+    nil
+  end
+
   def include?(key)
     current_node = first
     until current_node == @tail
